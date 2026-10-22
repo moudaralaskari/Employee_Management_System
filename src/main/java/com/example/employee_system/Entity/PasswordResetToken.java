@@ -1,0 +1,31 @@
+package com.example.employee_system.Entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.UuidGenerator;
+
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+@Entity
+@Table(name = "password_reset_token")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class PasswordResetToken {
+    @OneToOne()
+    @JoinColumn(name = "user_id", nullable = false, unique = true)
+    public UserAccount user;
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @UuidGenerator
+    private UUID id;
+    @Column(name = "token", unique = true, nullable = false)
+    private String token;
+    @Column(nullable = false)
+    private LocalDateTime expiryDate;
+}
