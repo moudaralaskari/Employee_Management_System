@@ -6,11 +6,13 @@
 -- ============================================
 
 -- Drop tables in reverse dependency order (if they exist)
-DROP TABLE IF EXISTS password_rest_token CASCADE;
-DROP TABLE IF EXISTS leave_request CASCADE;
-DROP TABLE IF EXISTS user_account CASCADE;
-DROP TABLE IF EXISTS employee CASCADE;
-DROP TABLE IF EXISTS department CASCADE;
+DROP TABLE IF EXISTS password_reset_token;
+DROP TABLE IF EXISTS password_rest_token;
+DROP TABLE IF EXISTS leave_request;
+DROP TABLE IF EXISTS `user-account`;
+DROP TABLE IF EXISTS user_account;
+DROP TABLE IF EXISTS employee;
+DROP TABLE IF EXISTS department;
 
 -- ============================================
 -- Table: department
