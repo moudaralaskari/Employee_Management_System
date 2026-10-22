@@ -38,19 +38,21 @@ authentication and role-based access control.
 
 ## Configuration
 
-Configure the following environment variables before starting the application:
+Before running the application, make sure your local MySQL server is running and the database connection URL in
+`application.properties` matches your setup.
+
+The current development configuration contains locally defined database credentials and a JWT signing secret. These
+values are intended for local development only and must not be reused in production.
+
+For email functionality, configure the following environment variables:
 
 | Variable             | Purpose                |
 |----------------------|------------------------|
-| `DB_USERNAME`        | MySQL username         |
-| `DB_PASSWORD`        | MySQL password         |
-| `JWT_SECRET`         | JWT signing secret     |
 | `GMAIL_APP_USERNAME` | Email account username |
 | `GMAIL_APP_PASSWORD` | Email app password     |
 
-Configure the database connection URL in the application configuration to match your local MySQL setup.
-
-**Security:** Never commit real passwords, tokens, or other secrets to the repository.
+**Security:** Never commit real passwords, JWT secrets, or other sensitive credentials to a public repository. Use
+environment variables or a secure secrets manager for production deployments.
 
 ## Getting Started
 
@@ -63,7 +65,10 @@ cd Employee_Management_System
 
 ### 2. Configure the application
 
-Set the required environment variables and configure your MySQL connection.
+1. Start your local MySQL server.
+2. Verify that the database connection URL in `src/main/resources/application.properties` matches your local setup.
+3. Configure `GMAIL_APP_USERNAME` and `GMAIL_APP_PASSWORD` if you want to use email functionality.
+4. Do not use the local development credentials or JWT secret in production.
 
 ### 3. Run the application
 
